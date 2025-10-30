@@ -8,5 +8,4 @@ sealed interface BusinessContactActions {
 
     data class TapOnABusinessContactToViewDetails(val contact: BusinessContact): BusinessContactActions
 
-
 }

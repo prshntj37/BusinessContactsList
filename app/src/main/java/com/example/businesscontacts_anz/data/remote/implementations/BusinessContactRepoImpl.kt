@@ -18,7 +18,6 @@ class BusinessContactRepoImpl @Inject constructor(
         }
         return when (networkResponse){
             is Result.Error -> {
-                println("prashanth error is ${networkResponse.error}")
                 Result.Error(networkResponse.error)
             }
 

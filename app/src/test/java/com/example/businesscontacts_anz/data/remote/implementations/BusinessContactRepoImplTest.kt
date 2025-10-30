@@ -23,17 +23,17 @@ class BusinessContactRepoImplTest {
 
     @Test
     fun `fetchBusinessContacts returns success when api returns data`() = runTest {
-        // Given
+
         val fakeResponseBody = listOf(
             BusinessContactDTO(id = 1, name = "John")// your DTO model
         )
         val fakeResponse = Response.success(fakeResponseBody)
         coEvery { fakeApi.fetchBusinessContacts() } returns fakeResponse
 
-        // When
+
         val result = repository.fetchBusinessContacts()
 
-        // Then
+
         assert(result is com.example.businesscontacts_anz.domain.utils.Result.Success)
         assert((result as com.example.businesscontacts_anz.domain.utils.Result.Success).data.first().name == "John")
     }

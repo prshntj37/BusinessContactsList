@@ -35,6 +35,7 @@ class BusinessContactViewModelTest {
         repository = mockk()
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @After
     fun tearDown() {
         Dispatchers.resetMain()
@@ -43,16 +44,16 @@ class BusinessContactViewModelTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `onBusinessContactAction FetchContacts updates state on success`() = runTest {
-        // Given
+
         val fakeContacts = listOf(BusinessContact(1, "BusinessContact1"))
         coEvery { repository.fetchBusinessContacts() } returns Result.Success(fakeContacts)
 
         viewModel = BusinessContactViewModel(repository)
 
-        // When
+       
         advanceUntilIdle() // wait for init{} to finish
 
-        // Then
+
         val state = viewModel.businessContactState.value
         assert(!state.isLoadingFromNetwork)
         assert(state.listOfContacts.size == 1)

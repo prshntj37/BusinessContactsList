@@ -33,7 +33,7 @@ import com.example.businesscontacts_anz.R
 import com.example.businesscontacts_anz.domain.model.BusinessContact
 import com.example.businesscontacts_anz.presentation.states.BusinessContactState
 import com.example.businesscontacts_anz.presentation.viewmodel.BusinessContactViewModel
-import kotlinx.coroutines.sync.Mutex
+
 
 @Composable
 fun ContactDetailsScreenRoot(
